@@ -1,0 +1,68 @@
+﻿@model IEnumerable<BetTracker.Models.SingleGameBetListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Enter New Bet", "Create")
+</p>
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.League)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomeTeam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AwayTeam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GamePick)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.League)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTeam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayTeam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GamePick)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.GameId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.GameId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.GameId })
+            </td>
+        </tr>
+    }
+
+</table>

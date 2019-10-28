@@ -1,0 +1,16 @@
+C:\Users\Ian\source\repos\BlueBadge\BetTracker\BetTracker\BetTracker.Contracts\bin\Debug\BetTracker.Contracts.dll.config
+C:\Users\Ian\source\repos\BlueBadge\BetTracker\BetTracker\BetTracker.Contracts\bin\Debug\BetTracker.Contracts.dll
+C:\Users\Ian\source\repos\BlueBadge\BetTracker\BetTracker\BetTracker.Contracts\bin\Debug\BetTracker.Contracts.pdb
+C:\Users\Ian\source\repos\BlueBadge\BetTracker\BetTracker\BetTracker.Contracts\bin\Debug\EntityFramework.dll
+C:\Users\Ian\source\repos\BlueBadge\BetTracker\BetTracker\BetTracker.Contracts\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ian\source\repos\BlueBadge\BetTracker\BetTracker\BetTracker.Contracts\bin\Debug\EntityFramework.xml
+C:\Users\Ian\source\repos\BlueBadge\BetTracker\BetTracker\BetTracker.Contracts\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ian\source\repos\BlueBadge\BetTracker\BetTracker\BetTracker.Contracts\obj\Debug\BetTracker.Contracts.csprojAssemblyReference.cache
+C:\Users\Ian\source\repos\BlueBadge\BetTracker\BetTracker\BetTracker.Contracts\obj\Debug\BetTracker.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\Ian\source\repos\BlueBadge\BetTracker\BetTracker\BetTracker.Contracts\obj\Debug\BetTracker.Contracts.csproj.CopyComplete
+C:\Users\Ian\source\repos\BlueBadge\BetTracker\BetTracker\BetTracker.Contracts\obj\Debug\BetTracker.Contracts.dll
+C:\Users\Ian\source\repos\BlueBadge\BetTracker\BetTracker\BetTracker.Contracts\obj\Debug\BetTracker.Contracts.pdb
+C:\Users\Ian\source\repos\BlueBadge\BetTracker\BetTracker\BetTracker.Contracts\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Ian\source\repos\BlueBadge\BetTracker\BetTracker\BetTracker.Contracts\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Ian\source\repos\BlueBadge\BetTracker\BetTracker\BetTracker.Contracts\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Ian\source\repos\BlueBadge\BetTracker\BetTracker\BetTracker.Contracts\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
