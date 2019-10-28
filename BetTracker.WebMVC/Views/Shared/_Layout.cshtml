@@ -17,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    @Html.ActionLink("Bet on Games", "Index", "SingleGameBet")
+                    @Html.ActionLink("Game Bets", "Index", "SingleGameBet")
                 </li>
                 <li class="nav-item">
                     @Html.ActionLink("Team Season Bets", "Index", "TeamSeasonBet")
@@ -29,11 +29,11 @@
             @Html.Partial("_LoginPartial")
         </div>
     </nav>
+
     <div class="container body-content">
         @RenderBody()
-        <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Ian Mills</p>
+            <p>&copy; @DateTime.Now.Year - Ian Mills <br /> Contact - iandmills1@gmail.com</p>
         </footer>
     </div>
 
