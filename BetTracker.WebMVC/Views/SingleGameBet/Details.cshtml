@@ -4,79 +4,69 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="betdetails">
 
-<div>
-    <h4>SingleGameBetDetails</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
+<h2>Game Bet Details</h2>
+
+<table class="table">
+    <tr>
+        <th>
             @Html.DisplayNameFor(model => model.GameId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GameId)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.HomeTeam)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HomeTeam)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.AwayTeam)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AwayTeam)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.GamePick)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GamePick)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Odds)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Odds)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.AmountBet)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AmountBet)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.ToWin)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ToWin)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.CreatedUtc)
-        </dt>
+        </th>
+        <th></th>
+    </tr>
 
-        <dd>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.GameId)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.HomeTeam)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.AwayTeam)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.GamePick)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Odds)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.AmountBet)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.ToWin)
+        </td>
+        <td>
             @Html.DisplayFor(model => model.CreatedUtc)
-        </dd>
-
-    </dl>
-</div>
+        </td>
+    </tr>
+</table>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.GameId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+</div>

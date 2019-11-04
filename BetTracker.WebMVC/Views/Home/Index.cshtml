@@ -2,15 +2,11 @@
     ViewBag.Title = "Home Page";
 }
 
+<div class="homecard" style="align-content:center">
+    <img src="~/Content/Assets/HomePageLeadImage3.jpg" class="img-fluid" alt="Lebron James dunk" style="width:560px; height: 370px;">
+    <h5 class="card-text">The number one place to track all your bets! Click below to start tracking your bets today.</h5>    
+</div>
 <div class="page">
-    <div class="section homecard"> <!--MAKE A JUMBOTRON, MAYBE DOESN'T NEED TO BE FLEXBOX-->
-        <div class="card" style="width: 18rem;">
-            <img src="~/Content/Assets/HomePageLeadImage.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">The number one place to track all your bets! Click below to start tracking your bets today.</p>
-            </div>
-        </div>
-    </div>
     <div class="section">
         <div class="card" style="width: 18rem;">
             <img src="~/Content/Assets/SingleGamePic.jpg" class="card-img-top" alt="NBA tipoff">
@@ -21,7 +17,7 @@
         <div class="card" style="width: 18rem;">
             <img src="~/Content/Assets/TeamSeasonPic.jpg" class="card-img-top" alt="Colts team">
             <div class="card-body">
-                @Html.ActionLink("Team Season Bets", "Index", "TeamSeasonBet")
+                @Html.ActionLink("Team Futures", "Index", "TeamSeasonBet")
             </div>
         </div>
         <div class="card" style="width: 18rem;">
@@ -29,5 +25,6 @@
             <div class="card-body">
                 @Html.ActionLink("Player Props", "Index", "PlayerGameBet")
             </div>
+        </div>
     </div>
 </div>

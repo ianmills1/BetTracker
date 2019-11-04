@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - BetTracker</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -13,14 +13,14 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        @Html.ActionLink("Bet Tracker", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        @Html.ActionLink("BetTracker.com", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     @Html.ActionLink("Game Bets", "Index", "SingleGameBet")
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("Team Season Bets", "Index", "TeamSeasonBet")
+                    @Html.ActionLink("Team Futures", "Index", "TeamSeasonBet")
                 </li>
                 <li class="nav-item">
                     @Html.ActionLink("Player Props", "Index", "PlayerGameBet")
@@ -32,10 +32,10 @@
 
     <div class="container body-content">
         @RenderBody()
+    </div>
         <footer>
             <p>&copy; @DateTime.Now.Year - Ian Mills <br /> Contact - iandmills1@gmail.com</p>
         </footer>
-    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

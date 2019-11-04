@@ -1,6 +1,7 @@
 ﻿* {
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -17,7 +18,10 @@ textarea {
     max-width: 280px;
 }
 
-/* Navbar */
+/* All associated files within Views folder*/
+/* Folder -> File name */
+
+/* Shared -> _Layout.cshtml */
 
 .navbar {
     position: absolute;
@@ -33,8 +37,6 @@ nav li:first-child {
     padding-left: 20px;
 }
 
-/* Footer */
-
 footer {
     text-align: center;
     position: absolute;
@@ -43,15 +45,26 @@ footer {
     left: 0;
 }
 
-/* Home page */
-
-p {
-    color: white;
-}
+/* Home -> Index.cshtml */
 
 .page {
     display: flex;
     flex-wrap: wrap;
+}
+
+.homecard {
+    text-align: center;
+    margin-top: 75px;
+    margin-bottom: 25px;
+}
+
+.homecard img {
+    border: 1px solid black;
+}
+
+.card-text {
+    color: white;
+    padding-top: 10px;
 }
 
 .section {
@@ -59,10 +72,183 @@ p {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    text-align: center;
 }
 
-.homecard {
-    margin-top: 125px;
-    margin-bottom: 75px;
-    /* MAKE ENTIRE IMAGE LARGER ON HOME SCREEN, MAYBE MAKE IT A JUMBOTRON */
+/* Account -> Register.cshtml */
+
+.register {
+    padding-top: 100px;
+    color: white;
+}
+
+.registerbtn {
+    color: white;
+}
+
+.registerbtn:hover {
+    text-decoration: underline;
+}
+
+/* Account -> Login.cshtml */
+
+.login {
+    padding-top: 100px;
+    color: white;
+}
+
+.loginbtn {
+    color: white;
+}
+
+.loginbtn:hover {
+    text-decoration: underline;
+}
+
+/* Account -> ForgotPassword.cshtml */
+
+.password1 {
+    padding-top: 100px;
+    color: white;
+}
+
+.forgotpwbtn {
+    color: white;
+}
+
+.forgotpwbtn:hover {
+    text-decoration: underline;
+}
+
+/* Account -> ForgotPasswordConfirmation.cshtml */
+
+.password2 {
+    padding-top: 100px;
+    color: white;
+}
+
+.password2 h1 {
+    font-size: 30px;
+}
+
+.password2 p {
+    font-size: 22.5px;
+}
+
+/* Manage -> Index.cshtml */
+
+.passwordchange1 {
+    padding-top: 100px;
+    color: white;
+}
+
+/* Manage -> ChangePassword.cshtml */
+
+.passwordchange2 {
+    padding-top: 100px;
+    color: white;
+}
+
+.pwchangebtn {
+    color: white;
+}
+
+.pwchangebtn:hover {
+    text-decoration: underline;
+}
+
+/* Index view for SingleGame, TeamSeason and PlayerGame */
+
+.bethome {
+    padding-top: 100px;
+    color: white;
+}
+
+.bethome h2 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.bethome p {
+    padding-bottom: 10px;
+}
+
+.bethome th {
+    border-top: none;
+    border-bottom: 2px solid #ff8c69;
+    text-align: center;
+    font-size: 18px;
+}
+
+.bethome td {
+    border-bottom: 1px solid #ff8c69;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Create view for SingleGame, TeamSeason, PlayerGame and BetInfo */
+
+.betcreate {
+    padding-top: 100px;
+    color: white;
+}
+
+.createbtn {
+    color: white;
+}
+
+.createbtn:hover {
+    text-decoration: underline;
+}
+
+/* Edit view for SingleGame, TeamSeason and PlayerGame */
+
+.betedit {
+    padding-top: 100px;
+    color: white;
+}
+
+.betedit h2 {
+    font-weight: bold;
+}
+
+.editbtn {
+    color: white;
+}
+
+.editbtn:hover {
+    text-decoration: underline;
+}
+
+/* Details view for SingleGame, TeamSeason and PlayerGame */
+
+.betdetails {
+    padding-top: 100px;
+    color: white;
+}
+
+.betdetails h2 {
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 25px;
+}
+
+.betdetails th {
+    border-top: none;
+    border-bottom: 2px solid #ff8c69;
+    text-align: center;
+    font-size: 18px;
+}
+
+.betdetails td {
+    border-bottom: 1px solid #ff8c69;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Delete view for SingleGame, TeamSeason and PlayerGame */
+
+.betdelete {
+    padding-top: 100px;
+    color: white;
 }

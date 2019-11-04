@@ -68,7 +68,7 @@ namespace BetTracker.Services
             }
         }
 
-        public PlayerGameBetDetail GetPlayerGameBetById(int id)
+        public object GetPlayerGameBetById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -76,22 +76,47 @@ namespace BetTracker.Services
                 var something = ctx.BaseBets.Where(e => e.BaseId == id).ToList();
                 if (something[0].GetType() == typeof(PlayerGameBet))
                 {
-                    var thing = something.OfType<PlayerGameBet>().Single();
+                    var entity = something.OfType<PlayerGameBet>().Single();
+
+                    return
+                        new PlayerGameBetDetail
+                        {
+                            PlayerId = entity.PlayerId,
+                            PlayerName = entity.PlayerName,
+                            PlayerTeam = entity.PlayerTeam,
+                            PlayerPick = entity.PlayerPick
+                        };
                 }
+                else if (something[0].GetType() == typeof(TeamSeasonBet))
+                {
+                    var entity = something.OfType<TeamSeasonBet>().Single();
 
+                    return
+                        new TeamSeasonBetDetail
+                        {
+                            TeamId = entity.TeamId,
+                            Team = entity.Team,
+                            TeamPick = entity.TeamPick
+                        };
+                }
+                else if (something[0].GetType() == typeof(SingleGameBet))
+                {
+                    var entity = something.OfType<SingleGameBet>().Single();
 
-                var entity =
-                    ctx
-                        .PlayerGameBets
-                        .Single(e => e.PlayerId == id && e.OwnerId == _userId);
-                return
-                    new PlayerGameBetDetail
-                    {
-                        PlayerId = entity.PlayerId,
-                        PlayerName = entity.PlayerName,
-                        PlayerTeam = entity.PlayerTeam,
-                        PlayerPick = entity.PlayerPick
-                    };
+                    return
+                        new SingleGameBetDetail
+                        {
+                            GameId = entity.GameId,
+                            HomeTeam = entity.HomeTeam,
+                            AwayTeam = entity.AwayTeam,
+                            GamePick = entity.GamePick
+                        };
+                }
+                else
+                {
+                    return
+                        null;
+                }
             }
         }
 
