@@ -61,20 +61,62 @@ namespace BetTracker.WebMVC.Controllers
         {
             var service = CreatePlayerGameBetService();
             var detail = service.GetPlayerGameBetById(id);
-            var model =
-                new PlayerGameBetEdit
-                {
-                    PlayerId = detail.PlayerId,
-                    Sport = detail.Sport,
-                    League = detail.League,
-                    PlayerName = detail.PlayerName,
-                    PlayerTeam = detail.PlayerTeam,
-                    PlayerPick = detail.PlayerPick,
-                    Odds = detail.Odds,
-                    AmountBet = detail.AmountBet,
-                    ToWin = detail.ToWin
-                };
-            return View(model);
+            if (detail.GetType() == typeof(PlayerGameBetDetail))
+            {
+                var some = (PlayerGameBetDetail)detail;
+                var model =
+                    new PlayerGameBetEdit
+                    {
+                        BaseId = some.BaseId,
+                        Sport = some.Sport,
+                        League = some.League,
+                        PlayerName = some.PlayerName,
+                        PlayerTeam = some.PlayerTeam,
+                        PlayerPick = some.PlayerPick,
+                        Odds = some.Odds,
+                        AmountBet = some.AmountBet,
+                    };
+                return View(model);
+            }
+            else if (detail.GetType() == typeof(TeamSeasonBetDetail))
+            {
+                var some = (TeamSeasonBetDetail)detail;
+                var model =
+                    new TeamSeasonBetEdit
+                    {
+                        BaseId = some.BaseId,
+                        Sport = some.Sport,
+                        League = some.League,
+                        Team = some.Team,
+                        TeamPick = some.TeamPick,
+                        Odds = some.Odds,
+                        AmountBet = some.AmountBet
+                    };
+                return View(model);
+            }
+            else if (detail.GetType() == typeof(SingleGameBetDetail))
+            {
+                var some = (SingleGameBetDetail)detail;
+                var model =
+                    new SingleGameBetEdit
+                    {
+                        BaseId = some.BaseId,
+                        Sport = some.Sport,
+                        League = some.League,
+                        HomeTeam = some.HomeTeam,
+                        AwayTeam = some.AwayTeam,
+                        GamePick = some.GamePick,
+                        Odds = some.Odds,
+                        AmountBet = some.AmountBet
+                    };
+                return View(model);
+            }
+            else
+            {
+                return
+                    null;
+            }
+
         }
 
         [HttpPost]
@@ -83,7 +125,7 @@ namespace BetTracker.WebMVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.PlayerId != id)
+            if (model.BaseId != id)
             {
                 ModelState.AddModelError("", "Player ID Mismatch");
                 return View(model);

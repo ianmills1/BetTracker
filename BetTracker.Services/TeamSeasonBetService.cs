@@ -54,6 +54,7 @@ namespace BetTracker.Services
                             e =>
                                 new TeamSeasonBetListItem
                                 {
+                                    BaseId = e.BaseId,
                                     Sport = e.Sport,
                                     League = e.League,
                                     Team = e.Team,
@@ -73,13 +74,21 @@ namespace BetTracker.Services
                 var entity =
                     ctx
                         .TeamSeasonBets
-                        .Single(e => e.TeamId == id && e.OwnerId == _userId);
+                        .Single(e => e.BaseId == id && e.OwnerId == _userId);
+                var entityBetInfo =
+                    ctx
+                        .BetsInfo
+                        .Single(e => e.BaseBetId == id);
                 return
                     new TeamSeasonBetDetail
                     {
-                        TeamId = entity.TeamId,
+                        BaseId = entity.BaseId,
                         Team = entity.Team,
                         TeamPick = entity.TeamPick,
+                        Odds = entityBetInfo.Odds,
+                        AmountBet = entityBetInfo.AmountBet,
+                        ToWin = entityBetInfo.ToWin,
+                        CreatedUtc = entity.CreatedUtc
                     };
             }
         }
@@ -91,7 +100,7 @@ namespace BetTracker.Services
                 var entity =
                     ctx
                         .TeamSeasonBets
-                        .Single(e => e.TeamId == model.TeamId && e.OwnerId == _userId);
+                        .Single(e => e.BaseId == model.BaseId && e.OwnerId == _userId);
 
                 entity.Sport = model.Sport;
                 entity.League = model.League;
@@ -102,14 +111,14 @@ namespace BetTracker.Services
             }
         }
 
-        public bool DeleteTeamSeasonBet(int teamId)
+        public bool DeleteTeamSeasonBet(int baseId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .TeamSeasonBets
-                        .Single(e => e.TeamId == teamId && e.OwnerId == _userId);
+                        .Single(e => e.BaseId == baseId && e.OwnerId == _userId);
 
                 ctx.TeamSeasonBets.Remove(entity);
 

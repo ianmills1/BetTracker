@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace BetTracker.Models
 {
-    public class SingleGameBetDetail
+    public class SingleGameBetDetail : BetDetail
     {
         [Display(Name = "Game Bet ID")]
-        public int GameId { get; set; }
+        public int BaseId { get; set; }
 
         [Required]
         public SportType Sport { get; set; }

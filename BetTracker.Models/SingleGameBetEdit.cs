@@ -11,7 +11,7 @@ namespace BetTracker.Models
     public class SingleGameBetEdit
     {
         [Display(Name = "Game ID")]
-        public int GameId { get; set; }
+        public int BaseId { get; set; }
 
         public SportType Sport { get; set; }
 

@@ -55,6 +55,7 @@ namespace BetTracker.Services
                             e =>
                                 new SingleGameBetListItem
                                 {
+                                    BaseId = e.BaseId,
                                     Sport = e.Sport,
                                     League = e.League,
                                     HomeTeam = e.HomeTeam,
@@ -75,14 +76,22 @@ namespace BetTracker.Services
                 var entity =
                     ctx
                         .SingleGameBets
-                        .Single(e => e.GameId == id && e.OwnerId == _userId);
+                        .Single(e => e.BaseId == id && e.OwnerId == _userId);
+                var entityBetInfo =
+                    ctx
+                        .BetsInfo
+                        .Single(e => e.BaseBetId == id);
                 return
                     new SingleGameBetDetail
                     {
-                        GameId = entity.GameId,
+                        BaseId = entity.BaseId,
                         HomeTeam = entity.HomeTeam,
                         AwayTeam = entity.AwayTeam,
-                        GamePick = entity.GamePick
+                        GamePick = entity.GamePick,
+                        Odds = entityBetInfo.Odds,
+                        AmountBet = entityBetInfo.AmountBet,
+                        ToWin = entityBetInfo.ToWin,
+                        CreatedUtc = entity.CreatedUtc
                     };
             }
         }
@@ -94,7 +103,7 @@ namespace BetTracker.Services
                 var entity =
                     ctx
                         .SingleGameBets
-                        .Single(e => e.GameId == model.GameId && e.OwnerId == _userId);
+                        .Single(e => e.BaseId == model.BaseId && e.OwnerId == _userId);
 
                 entity.Sport = model.Sport;
                 entity.League = model.League;
@@ -106,14 +115,14 @@ namespace BetTracker.Services
             }
         }
 
-        public bool DeleteSingleGameBet(int gameId)
+        public bool DeleteSingleGameBet(int baseId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .SingleGameBets
-                        .Single(e => e.GameId == gameId && e.OwnerId == _userId);
+                        .Single(e => e.BaseId == baseId && e.OwnerId == _userId);
 
                 ctx.SingleGameBets.Remove(entity);
 

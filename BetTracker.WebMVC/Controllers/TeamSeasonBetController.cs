@@ -64,7 +64,7 @@ namespace BetTracker.WebMVC.Controllers
             var model =
                 new TeamSeasonBetEdit
                 {
-                    TeamId = detail.TeamId,
+                    BaseId = detail.BaseId,
                     Sport = detail.Sport,
                     League = detail.League,
                     Team = detail.Team,
@@ -81,7 +81,7 @@ namespace BetTracker.WebMVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.TeamId != id)
+            if (model.BaseId != id)
             {
                 ModelState.AddModelError("", "Team ID Mismatch");
                 return View(model);

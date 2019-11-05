@@ -60,9 +60,9 @@
                 @Html.DisplayFor(modelItem => item.GamePick)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.GameId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.GameId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.GameId })
+                @Html.ActionLink("Edit", "Edit", new { id = item.BaseId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.BaseId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.BaseId })
             </td>
         </tr>
     }

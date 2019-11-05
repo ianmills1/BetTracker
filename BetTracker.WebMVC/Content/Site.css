@@ -252,3 +252,29 @@ footer {
     padding-top: 100px;
     color: white;
 }
+
+.betdelete h3 {
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+.betdelete th {
+    border-top: none;
+    border-bottom: 2px solid #ff8c69;
+    text-align: center;
+    font-size: 18px;
+}
+
+.betdelete td {
+    border-bottom: 1px solid #ff8c69;
+    text-align: center;
+    font-size: 14px;
+}
+
+.betdelete input {
+    color: white;
+}
+
+.betdelete input:hover {
+    text-decoration: underline;
+}

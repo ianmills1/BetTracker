@@ -11,7 +11,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.GameId)
+            @Html.DisplayNameFor(model => model.BaseId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.HomeTeam)
@@ -39,7 +39,7 @@
 
     <tr>
         <td>
-            @Html.DisplayFor(model => model.GameId)
+            @Html.DisplayFor(model => model.BaseId)
         </td>
         <td>
             @Html.DisplayFor(model => model.HomeTeam)
@@ -65,7 +65,7 @@
     </tr>
 </table>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.GameId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BaseId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
 

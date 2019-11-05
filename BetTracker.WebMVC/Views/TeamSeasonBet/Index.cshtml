@@ -54,9 +54,9 @@
                 @Html.DisplayFor(modelItem => item.TeamPick)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.TeamId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.TeamId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.TeamId })
+                @Html.ActionLink("Edit", "Edit", new { id = item.BaseId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.BaseId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.BaseId })
             </td>
         </tr>
     }

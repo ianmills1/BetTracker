@@ -6,77 +6,64 @@
 
 <div class="betdelete">
 
-<h2>Delete Game Bet</h2>
+<h3>Are you sure you want to delete this bet?</h3>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.GameId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GameId)
-        </dd>
-
-        <dt>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BaseId)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.HomeTeam)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HomeTeam)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.AwayTeam)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AwayTeam)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.GamePick)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GamePick)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Odds)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Odds)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.AmountBet)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AmountBet)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.ToWin)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ToWin)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.CreatedUtc)
-        </dt>
+        </th>
+        <th></th>
+    </tr>
 
-        <dd>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.BaseId)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.HomeTeam)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.AwayTeam)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.GamePick)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Odds)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.AmountBet)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.ToWin)
+        </td>
+        <td>
             @Html.DisplayFor(model => model.CreatedUtc)
-        </dd>
-
-    </dl>
+        </td>
+    </tr>
+</table>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
@@ -86,6 +73,4 @@
             @Html.ActionLink("Back to List", "Index")
         </div>
     }
-</div>
-
 </div>

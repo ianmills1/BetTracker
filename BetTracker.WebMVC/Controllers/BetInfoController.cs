@@ -39,9 +39,8 @@ namespace BetTracker.WebMVC.Controllers
             if (service.CreateBetInfo(model))
             {
                 
-                if ()
                 TempData["SaveResult"] = "Your bet was created.";
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             };
 
             ModelState.AddModelError("", "Your bet could not be created.");

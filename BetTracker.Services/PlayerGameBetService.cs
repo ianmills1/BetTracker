@@ -55,6 +55,7 @@ namespace BetTracker.Services
                             e =>
                                 new PlayerGameBetListItem
                                 {
+                                    BaseId = e.BaseId,
                                     Sport = e.Sport,
                                     League = e.League,
                                     PlayerName = e.PlayerName,
@@ -68,7 +69,7 @@ namespace BetTracker.Services
             }
         }
 
-        public object GetPlayerGameBetById(int id)
+        public BetDetail GetPlayerGameBetById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -77,39 +78,61 @@ namespace BetTracker.Services
                 if (something[0].GetType() == typeof(PlayerGameBet))
                 {
                     var entity = something.OfType<PlayerGameBet>().Single();
+                    var entityBetInfo =
+                    ctx
+                        .BetsInfo
+                        .Single(e => e.BaseBetId == id);
 
                     return
                         new PlayerGameBetDetail
                         {
-                            PlayerId = entity.PlayerId,
+                            BaseId = entity.BaseId,
                             PlayerName = entity.PlayerName,
                             PlayerTeam = entity.PlayerTeam,
-                            PlayerPick = entity.PlayerPick
+                            PlayerPick = entity.PlayerPick,
+                            Odds = entityBetInfo.Odds,
+                            AmountBet = entityBetInfo.AmountBet,
+                            ToWin = entityBetInfo.ToWin,
+                            CreatedUtc = entity.CreatedUtc
                         };
                 }
                 else if (something[0].GetType() == typeof(TeamSeasonBet))
                 {
                     var entity = something.OfType<TeamSeasonBet>().Single();
+                    var entityBetInfo =
+                    ctx
+                        .BetsInfo
+                        .Single(e => e.BaseBetId == id);
 
                     return
                         new TeamSeasonBetDetail
                         {
-                            TeamId = entity.TeamId,
+                            BaseId = entity.BaseId,
                             Team = entity.Team,
-                            TeamPick = entity.TeamPick
+                            TeamPick = entity.TeamPick,
+                            Odds = entityBetInfo.Odds,
+                            AmountBet = entityBetInfo.AmountBet,
+                            ToWin = entityBetInfo.ToWin
                         };
                 }
                 else if (something[0].GetType() == typeof(SingleGameBet))
                 {
                     var entity = something.OfType<SingleGameBet>().Single();
+                    var entityBetInfo =
+                    ctx
+                        .BetsInfo
+                        .Single(e => e.BaseBetId == id);
 
                     return
                         new SingleGameBetDetail
                         {
-                            GameId = entity.GameId,
+                            BaseId = entity.BaseId,
                             HomeTeam = entity.HomeTeam,
                             AwayTeam = entity.AwayTeam,
-                            GamePick = entity.GamePick
+                            GamePick = entity.GamePick,
+                            Odds = entityBetInfo.Odds,
+                            AmountBet = entityBetInfo.AmountBet,
+                            ToWin = entityBetInfo.ToWin
                         };
                 }
                 else
@@ -127,7 +150,7 @@ namespace BetTracker.Services
                 var entity =
                     ctx
                         .PlayerGameBets
-                        .Single(e => e.PlayerId == model.PlayerId && e.OwnerId == _userId);
+                        .Single(e => e.BaseId == model.BaseId && e.OwnerId == _userId);
 
                 entity.Sport = model.Sport;
                 entity.League = model.League;
@@ -139,14 +162,14 @@ namespace BetTracker.Services
             }
         }
 
-        public bool DeletePlayerGameBet(int playerId)
+        public bool DeletePlayerGameBet(int baseId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .PlayerGameBets
-                        .Single(e => e.PlayerId == playerId && e.OwnerId == _userId);
+                        .Single(e => e.BaseId == baseId && e.OwnerId == _userId);
 
                 ctx.PlayerGameBets.Remove(entity);
 
